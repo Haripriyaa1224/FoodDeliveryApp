@@ -1,15 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv/config');
 const connectDB = require('./config/db.js');
 const foodRouter = require('./routes/foodRoute.js')
+const userRouter = require('./routes/userRoute.js');
 
 //app config
 const app = express();
 
-//env config
 
-dotenv.config();
 const port = process.env.PORT || 4000;
 
 //middleware
@@ -23,6 +22,7 @@ connectDB();
 
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads')) //to mount images 
+app.use('/api/user', userRouter);
 
 app.get('/', (req,res)=>{
 res.send('api working');
