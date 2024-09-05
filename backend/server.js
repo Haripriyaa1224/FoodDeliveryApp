@@ -5,6 +5,7 @@ const connectDB = require('./config/db.js');
 const foodRouter = require('./routes/foodRoute.js')
 const userRouter = require('./routes/userRoute.js');
 const cartRouter = require('./routes/cartRoute.js');
+const orderRouter = require('./routes/orderRoute.js');
 
 //app config
 const app = express();
@@ -25,6 +26,7 @@ app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads')) //to mount images 
 app.use('/api/user', userRouter);
 app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
 
 app.get('/', (req,res)=>{
 res.send('api working');

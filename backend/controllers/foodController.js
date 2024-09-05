@@ -1,4 +1,4 @@
-const foodModel = require('../models/foodmodel');
+const foodModel = require('../models/foodmodel.js');
 const fs = require('fs');
 
 //add food item
